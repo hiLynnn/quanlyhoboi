@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang Quản Lý Hồ Bơi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
 </head>
 <body>
   <!-- Thanh điều hướng -->
@@ -23,7 +23,7 @@
         <li class="nav-item"><a class="nav-link" href="infor-customer.html">Quản Lý Thông Tin Khách Hàng</a></li>
         <li class="nav-item"><a class="nav-link" href="review-management.html">Đánh Giá</a></li>
       </ul>
-      
+
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +40,7 @@
 
   <div class="container mt-5 pt-5">
     <h1 class="text-center mb-5">Chào Mừng Đến Với Hệ Thống Quản Lý Hồ Bơi</h1>
-  
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <!-- Quản Lý Hồ Bơi -->
       <div class="col">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Quản Lý Dịch Vụ -->
       <div class="col">
         <div class="card">
@@ -63,7 +63,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Quản Lý Dịch Vụ Của Hồ Bơi -->
       <div class="col">
         <div class="card">
@@ -75,7 +75,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
       <!-- Quản Lý Sự Kiện -->
       <div class="col">
@@ -87,7 +87,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Quản Lý Tiện Ích -->
       <div class="col">
         <div class="card">
@@ -98,7 +98,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Quản Lý Phiếu Đăng Ký -->
       <div class="col">
         <div class="card">
@@ -110,7 +110,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
       <!-- Quản Lý Thông Tin Khách Hàng -->
       <div class="col">
@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Đánh Giá -->
       <div class="col">
         <div class="card">
