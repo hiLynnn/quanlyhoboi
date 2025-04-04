@@ -46,11 +46,10 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
-        // Lấy dịch vụ theo id
-        $service = Service::findOrFail($id);
+       $poolService = PoolService::findOrFail($id);
+       $services = Service::findOrFail($poolService->id_service);
 
-        // Trả về view với dữ liệu dịch vụ để chỉnh sửa
-        return view('admin.services.edit', compact('service'));
+       return view('admin.services.edit', compact('poolService', 'services'));
     }
 
     public function destroy($id)
@@ -62,19 +61,14 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Xác thực dữ liệu nếu cần
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-        ]);
+        // Tìm thông tin của dịch vụ trong bảng pool_services
+        $poolService = PoolService::findOrFail($id);
 
-        // Tìm dịch vụ cần cập nhật
-        $service = Service::findOrFail($id);
+        // Cập nhật giá dịch vụ
+        $poolService->price = $request->input('price');
+        $poolService->save();
 
-        // Cập nhật thông tin dịch vụ
-        $service->name = $request->input('name');
-        $service->save();
-
-        // Chuyển hướng về trang danh sách và thông báo thành công
-        return redirect()->route('services.index')->with('success', 'Dịch vụ đã được cập nhật!');
+        // Chuyển hướng về danh sách dịch vụ với thông báo thành công
+        return redirect()->route('services.index')->with('message', 'Cập nhật dịch vụ thành công!');
     }
 }
