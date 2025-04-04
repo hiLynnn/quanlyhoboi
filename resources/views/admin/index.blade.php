@@ -10,10 +10,10 @@
 <body>
   <!-- Thanh điều hướng -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="#">Quản Lý Hồ Bơi Thành Phố</a>
+    <a class="navbar-brand" href="{{route('dashboard')}}">Quản Lý Hồ Bơi Thành Phố</a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+        <li class="nav-item"><a class="nav-link active" href="{{route('dashboard')}}">Trang Chủ</a></li>
         <li class="nav-item"><a class="nav-link" href="pool-management.html">Quản Lý Hồ Bơi</a></li>
         <li class="nav-item"><a class="nav-link" href="service-management.html">Quản Lý Dịch Vụ</a></li>
         <li class="nav-item"><a class="nav-link" href="service-management2.html">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
