@@ -46,10 +46,19 @@ class PoolServiceController extends Controller
 
     public function edit($id)
     {
-       $poolService = PoolService::findOrFail($id);
-       $services = Service::findOrFail($poolService->id_service);
+        // Tìm bản ghi PoolService với id
+        $poolService = PoolService::find($id);
 
-       return view('admin.services.edit', compact('poolService', 'services'));
+        if (!$poolService) {
+            // Nếu không tìm thấy bản ghi, chuyển hướng về trang danh sách với thông báo lỗi
+            return redirect()->route('services.index')->with('error', 'Không tìm thấy dịch vụ.');
+        }
+
+        // Lấy danh sách tất cả các dịch vụ
+        $allServices = Service::all();
+
+        // Trả về view và truyền dữ liệu
+        return view('admin.services.edit', compact('poolService', 'allServices'));
     }
 
     public function destroy($id)

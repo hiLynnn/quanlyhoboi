@@ -11,64 +11,57 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $poolServices = PoolService::with(['service', 'pool'])->get();
-        return view('admin.services.index', compact('poolServices'));
+        $services = Service::all();
+        return view('admin.service.index', compact('services'));
     }
 
     public function create()
     {
         $services = Service::all();
-        $pools = Pool::all();
 
-        return view('admin.services.create', compact('services', 'pools'));
+        return view('admin.service.create', compact('services'));
     }
 
     public function store(Request $request)
     {
-        // Validate dữ liệu
-        $request->validate([
-            'service_id' => 'required|exists:services,id_service',
-            'pool_id' => 'required|exists:pools,id_pool',
-            'price' => 'required|numeric',
-        ]);
-
-        // Tạo bản ghi mới trong bảng pool_services
-        PoolService::create([
-            'id_service' => $request->service_id,
-            'id_pool' => $request->pool_id,
-            'price' => $request->price,
-        ]);
-
-        // Chuyển hướng về trang danh sách hoặc thông báo thành công
-        return redirect()->route('services.index')->with('success', 'Dịch vụ đã được thêm thành công!');
+        $service = new Service();
+        $service->name = $request->input('name');
+        $service->save();
+        return redirect()->route('dich-vu.index')->with('success', 'Dịch vụ đã được thêm thành công!');
     }
 
 
     public function edit($id)
     {
-       $poolService = PoolService::findOrFail($id);
-       $services = Service::findOrFail($poolService->id_service);
-
-       return view('admin.services.edit', compact('poolService', 'services'));
+        $service = Service::find($id);
+        if (!$service) {
+            return redirect()->route('dich-vu.index')->with('error', 'Không tìm thấy dịch vụ.');
+        }
+        return view('admin.service.edit', compact('service'));
     }
 
     public function destroy($id)
     {
-        $poolService = PoolService::findOrFail($id);
-        $poolService->delete();
-        return redirect()->route('services.index')->with('success', 'Dịch vụ đã bị xóa!');
+        $service = Service::find($id);
+        if (!$service) {
+            return redirect()->route('dich-vu.index')->with('error', 'Không tìm thấy dịch vụ.');
+        }
+
+        $service->delete();
+        return redirect()->route('dich-vu.index')->with('success', 'Dịch vụ đã được xóa thành công!');
     }
 
     public function update(Request $request, $id)
     {
-        // Tìm thông tin của dịch vụ trong bảng pool_services
-        $poolService = PoolService::findOrFail($id);
+        $service = Service::find($id);
+        if (!$service) {
+            return redirect()->route('dich-vu.index')->with('error', 'Không tìm thấy dịch vụ.');
+        }
 
-        // Cập nhật giá dịch vụ
-        $poolService->price = $request->input('price');
-        $poolService->save();
+        $service->name = $request->input('name');
+        $service->save();
 
-        // Chuyển hướng về danh sách dịch vụ với thông báo thành công
-        return redirect()->route('services.index')->with('message', 'Cập nhật dịch vụ thành công!');
+        return redirect()->route('dich-vu.index')->with('success', 'Dịch vụ đã được cập nhật thành công!');
+
     }
 }

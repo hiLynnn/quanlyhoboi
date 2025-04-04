@@ -14,8 +14,14 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="editServiceId" class="form-label">Chọn Dịch Vụ</label>
-                <select class="form-control" id="editServiceId" disabled>
-                    <option value="{{ $services->id_service }}">{{ $services->name }}</option>
+                <select class="form-control" id="editServiceId" name="id_service" required>
+                    <option value="">Chọn Dịch Vụ</option>
+                    @foreach($allServices as $service)
+                        <option value="{{ $service->id_service }}"
+                            {{ $service->id_service == $poolService->id_service ? 'selected' : '' }}>
+                            {{ $service->name }}
+                        </option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-3">
