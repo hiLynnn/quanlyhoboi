@@ -1,312 +1,154 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý Dịch Vụ Hồ Bơi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css"> <!-- Thêm CSS của bạn -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danh Sách Đánh Giá</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <!-- Thanh điều hướng -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Quản Lý Dịch Vụ Hồ Bơi</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
-                <li class="nav-item"><a class="nav-link" href="pool-management.html">Quản Lý Hồ Bơi</a></li>
-                <li class="nav-item"><a class="nav-link active" href="service-management.html">Quản Lý Dịch Vụ</a></li>
-                <li class="nav-item"><a class="nav-link" href="service-management2.html">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
-                <li class="nav-item"><a class="nav-link" href="event-management.html">Quản Lý Sự Kiện</a></li>
-                <li class="nav-item"><a class="nav-link" href="facility-management.html">Quản Lý Tiện Ích</a></li>
-                <li class="nav-item"><a class="nav-link" href="eventregistrations.html">Quản Lý Phiếu Đăng Ký</a></li>
-                <li class="nav-item"><a class="nav-link" href="infor-customer.html">Thông Tin Khách Hàng</a></li>
-                <li class="nav-item"><a class="nav-link" href="review-management.html">Đánh Giá Khách Hàng</a></li>
-                <li class="nav-item"><a class="nav-link" href="statistics.html">Thống kê</a></li>
+  <!-- Thanh điều hướng -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Đánh Giá Khách Hàng</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
+        <li class="nav-item"><a class="nav-link" href="pool-management.html">Quản Lý Hồ Bơi</a></li>
+        <li class="nav-item"><a class="nav-link" href="service-management.html">Quản Lý Dịch Vụ</a></li>
+        <li class="nav-item"><a class="nav-link" href="service-management2.html">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
+        <li class="nav-item"><a class="nav-link active" href="event-management.html">Quản Lý Sự Kiện</a></li>
+        <li class="nav-item"><a class="nav-link" href="facility-management.html">Quản Lý Tiện Ích</a></li>
+        <li class="nav-item"><a class="nav-link" href="eventregistrations.html">Quản Lý Phiếu Đăng Ký</a></li>
+        <li class="nav-item"><a class="nav-link" href="infor-customer.html">Thông Tin Khách Hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="review-management.html">Đánh Giá Khách Hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="statistics.html">Thống kê</a></li>
 
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="img/admin.jpg" alt="Admin" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 8px;">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                        <li><a class="dropdown-item" href="profile.html">Hồ Sơ</a></li>
-                        <li><a class="dropdown-item text-danger" href="logout.html">Đăng Xuất</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
+      </ul>
 
-    <div class="container mt-5">
-        <h2>Danh Sách Dịch Vụ Hồ Bơi</h2>
-        <div class="search-container mb-3">
-            <input type="text" id="searchService" class="form-control" placeholder="Tìm kiếm dịch vụ...">
-        </div>
-        <button class="btn btn-primary mb-3" id="addServiceBtn" data-bs-toggle="modal" data-bs-target="#addServiceModal">Thêm Dịch Vụ</button>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="img/admin.jpg" alt="Admin" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 8px;">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+            <li><a class="dropdown-item" href="profile.html">Hồ Sơ</a></li>
+            <li><a class="dropdown-item text-danger" href="logout.html">Đăng Xuất</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-        <!-- Bảng danh sách dịch vụ -->
-        <table class="table table-bordered">
-            <thead>
+  <div class="container mt-5">
+    <h2>Danh Sách Đánh Giá</h2>
+    <div class="search-container mb-3">
+      <input type="text" id="searchReview" class="form-control" placeholder="Tìm kiếm đánh giá...">
+    </div>
+
+    <!-- Bảng danh sách đánh giá -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Khách Hàng</th>
+          <th>Hồ Bơi</th>
+          <th>Đánh Giá</th>
+          <th>Nhận Xét</th>
+          <th>Ngày Đánh Giá</th>
+        </tr>
+      </thead>
+      <tbody id="reviewList">
+        <!-- Dữ liệu đánh giá sẽ được hiển thị ở đây -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+   $(document).ready(function() {
+    // Lưu trữ tên hồ bơi để tránh gọi lại API nhiều lần
+    let pools = {};
+
+    // Hàm để lấy tên hồ bơi dựa trên id_pool
+    const fetchPoolName = (id_pool) => {
+      // Kiểm tra xem hồ bơi đã được lấy chưa
+      if (pools[id_pool]) {
+        return pools[id_pool]; // Trả về tên hồ bơi nếu đã có trong bộ nhớ
+      }
+
+      // Nếu chưa có, gọi API để lấy thông tin hồ bơi
+      $.ajax({
+        url: `http://127.0.0.1:8000/api/pools/${id_pool}`,  // Lấy thông tin hồ bơi theo id_pool
+        method: 'GET',
+        async: false, // Đảm bảo đồng bộ để tránh gọi API nhiều lần
+        success: function(response) {
+          if (response.status === 'success') {
+            pools[id_pool] = response.data.name;  // Lưu tên hồ bơi vào bộ nhớ
+          }
+        },
+        error: function() {
+          pools[id_pool] = 'Không có tên hồ bơi';  // Nếu có lỗi, gán tên mặc định
+        }
+      });
+      return pools[id_pool];
+    };
+
+    // Hàm lấy danh sách đánh giá và hiển thị
+    const fetchReviews = () => {
+      $.ajax({
+        url: 'http://127.0.0.1:8000/api/pools/15/reviews', // Chỉnh sửa id_pool theo yêu cầu
+        method: 'GET',
+        success: function(response) {
+          if (response.status === 'success') {
+            let reviews = response.data;
+            let reviewListHtml = '';
+
+            reviews.forEach((review, index) => {
+              // Lấy tên hồ bơi theo id_pool
+              let poolName = fetchPoolName(review.id_pool);
+
+              reviewListHtml += `
                 <tr>
-                    <th>STT</th>
-                    <th>Tên Dịch Vụ</th>
-                    <th>Giá Dịch Vụ</th>
-                    <th>Hồ Bơi</th>
-                    <th>Thao Tác</th>
+                  <td>${index + 1}</td>
+                  <td>${review.user.name}</td>
+                  <td>${poolName}</td> <!-- Hiển thị tên hồ bơi -->
+                  <td>${review.rating} / 5</td>
+                  <td>${review.comment ? review.comment : 'Không có nhận xét'}</td>
+                  <td>${new Date(review.create_at).toLocaleDateString()}</td>
                 </tr>
-            </thead>
-            <tbody id="serviceList">
-            </tbody>
-        </table>
-    </div>
-
-   <!-- Modal Thêm Dịch Vụ -->
-    <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="addServiceModalLabel">Thêm Dịch Vụ Mới</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <form id="addServiceForm">
-                <div class="mb-3">
-                <label for="serviceId" class="form-label">Chọn Dịch Vụ</label>
-                <select class="form-control" id="serviceId" required>
-                    <option value="">Chọn Dịch Vụ</option>
-                    <!-- Dịch vụ sẽ được lấy từ cơ sở dữ liệu -->
-                </select>
-                </div>
-                <div class="mb-3">
-                <label for="poolId" class="form-label">Chọn Hồ Bơi</label>
-                <select class="form-control" id="poolId" required>
-                    <option value="">Chọn Hồ Bơi</option>
-                    <!-- Hồ bơi sẽ được lấy từ cơ sở dữ liệu -->
-                </select>
-                </div>
-                <div class="mb-3">
-                <label for="servicePrice" class="form-label">Giá Dịch Vụ</label>
-                <input type="number" class="form-control" id="servicePrice" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Lưu</button>
-            </form>
-            </div>
-        </div>
-        </div>
-    </div>
-  
-
-    <!-- Modal Sửa Dịch Vụ -->
-    <div class="modal fade" id="editServiceModal" tabindex="-1" aria-labelledby="editServiceModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editServiceModalLabel">Chỉnh Sửa Dịch Vụ</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editServiceForm">
-                        <div class="mb-3">
-                            <label for="editServiceId" class="form-label">Chọn Dịch Vụ</label>
-                            <select class="form-control" id="editServiceId" disabled>
-                                <!-- Dịch vụ sẽ được lấy từ cơ sở dữ liệu -->
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="editServicePrice" class="form-label">Giá Dịch Vụ</label>
-                            <input type="number" class="form-control" id="editServicePrice" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Lưu</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const poolId = 15; // ID hồ bơi đang được quản lý
-
-// Hàm lấy tất cả dịch vụ từ cơ sở dữ liệu
-    function getAllServices() {
-        $.ajax({
-            url: `http://127.0.0.1:8000/api/pools/${poolId}/services`,  // API lấy danh sách dịch vụ
-            method: 'GET',
-            success: function (response) {
-                $('#serviceList').empty();
-                if (response.status === 'success') {
-                    response.data.forEach((service, index) => {
-                        $('#serviceList').append(`
-                            <tr>
-                                <td>${index + 1}</td>
-                                <td>${service.service.name}</td>
-                                <td>${service.price} VND</td>
-                                <td>Hồ Bơi ${service.id_pool}</td>
-                                <td>
-                                    <button class="btn btn-warning" onclick="editService(${service.id_ps})">Sửa</button>
-                                    <button class="btn btn-danger" onclick="deleteService(${service.id_ps})">Xóa</button>
-                                </td>
-                            </tr>
-                        `);
-                    });
-                } else {
-                    alert('Không có dịch vụ nào');
-                }
-            },
-            error: function () {
-                alert('Có lỗi khi lấy dữ liệu');
-            }
-        });
-    }
-
-    // Hàm lấy dịch vụ để điền vào modal Thêm Dịch Vụ
-    function getServices() {
-        $.ajax({
-            url: `http://127.0.0.1:8000/api/services`, // API lấy danh sách dịch vụ
-            method: 'GET',
-            success: function (response) {
-                if (response.status === 'success') {
-                    response.data.forEach(service => {
-                        $('#serviceId').append(`<option value="${service.id_service}">${service.name}</option>`);
-                        $('#editServiceId').append(`<option value="${service.id_service}">${service.name}</option>`);
-                    });
-                } else {
-                    alert('Không có dịch vụ nào');
-                }
-            },
-            error: function () {
-                alert('Có lỗi khi lấy dịch vụ');
-            }
-        });
-    }
-
-    // Hàm lấy danh sách hồ bơi để điền vào modal Thêm Dịch Vụ
-    function getPools() {
-        $.ajax({
-            url: `http://127.0.0.1:8000/api/pools`, // API lấy danh sách hồ bơi
-            method: 'GET',
-            success: function (response) {
-                if (response.status === 'success') {
-                    response.data.forEach(pool => {
-                        $('#poolId').append(`<option value="${pool.id_pool}">${pool.name}</option>`);
-                    });
-                } else {
-                    alert('Không có hồ bơi nào');
-                }
-            },
-            error: function () {
-                alert('Có lỗi khi lấy hồ bơi');
-            }
-        });
-    }
-
-    // Gọi hàm lấy dịch vụ và hồ bơi khi trang được tải
-    $(document).ready(function () {
-        getAllServices();
-        getServices();
-        getPools(); // Lấy danh sách hồ bơi
-    });
-
-    // Thêm dịch vụ mới cho hồ bơi
-    $('#addServiceForm').submit(function (e) {
-        e.preventDefault();
-        const serviceId = $('#serviceId').val();
-        const poolId = $('#poolId').val();  // Lấy ID hồ bơi đã chọn
-        const price = $('#servicePrice').val();
-
-        if (!serviceId || !poolId || !price) {
-            alert('Vui lòng điền đầy đủ thông tin');
-            return;
-        }
-
-        $.ajax({
-            url: `http://127.0.0.1:8000/api/pools/${poolId}/services/create`,
-            method: 'POST',
-            data: { id_service: serviceId, price: price },
-            success: function (response) {
-                if (response.status === 'success') {
-                    alert('Thêm dịch vụ thành công');
-                    $('#addServiceModal').modal('hide');
-                    getAllServices();
-                } else {
-                    alert('Thêm dịch vụ thất bại');
-                }
-            },
-            error: function () {
-                alert('Có lỗi khi thêm dịch vụ');
-            }
-        });
-    });
-
-    // Sửa dịch vụ
-    function editService(id_ps) {
-        $.ajax({
-            url: `http://127.0.0.1:8000/api/pools/${poolId}/services/${id_ps}`,
-            method: 'GET',
-            success: function (response) {
-                if (response.status === 'success') {
-                    const service = response.data;
-                    $('#editServiceId').val(service.id_service);
-                    $('#editServicePrice').val(service.price);
-                    $('#editServiceModal').modal('show');
-                    $('#editServiceForm').submit(function (e) {
-                        e.preventDefault();
-                        const newPrice = $('#editServicePrice').val();
-                        if (newPrice) {
-                            $.ajax({
-                                url: `http://127.0.0.1:8000/api/pools/${poolId}/services/${id_ps}`,
-                                method: 'PATCH',
-                                data: { price: newPrice },
-                                success: function (response) {
-                                    if (response.status === 'success') {
-                                        alert('Cập nhật dịch vụ thành công');
-                                        getAllServices();
-                                        $('#editServiceModal').modal('hide');
-                                    } else {
-                                        alert('Cập nhật dịch vụ thất bại');
-                                    }
-                                },
-                                error: function () {
-                                    alert('Có lỗi khi cập nhật dịch vụ');
-                                }
-                            });
-                        }
-                    });
-                }
-            },
-            error: function () {
-                alert('Có lỗi khi lấy thông tin dịch vụ');
-            }
-        });
-    }
-
-    // Xóa dịch vụ
-    function deleteService(id_ps) {
-        if (confirm('Bạn có chắc chắn muốn xóa dịch vụ này không?')) {
-            $.ajax({
-                url: `http://127.0.0.1:8000/api/pools/${poolId}/services/${id_ps}`,
-                method: 'DELETE',
-                success: function (response) {
-                    if (response.status === 'success') {
-                        alert('Xóa dịch vụ thành công');
-                        getAllServices();
-                    } else {
-                        alert('Xóa dịch vụ thất bại');
-                    }
-                },
-                error: function () {
-                    alert('Có lỗi khi xóa dịch vụ');
-                }
+              `;
             });
+            $('#reviewList').html(reviewListHtml);
+          } else {
+            $('#reviewList').html('<tr><td colspan="6" class="text-center">Không có đánh giá nào</td></tr>'); // Cập nhật số cột thành 6
+          }
+        },
+        error: function(error) {
+          console.log(error);
+          alert('Lỗi khi tải danh sách đánh giá!');
         }
-    }
+      });
+    };
 
-    </script>
+    fetchReviews();
+
+    // Tìm kiếm đánh giá
+    $('#searchReview').on('input', function() {
+      let query = $(this).val().toLowerCase();
+      $('#reviewList tr').each(function() {
+        let customerName = $(this).find('td').eq(1).text().toLowerCase();
+        let poolName = $(this).find('td').eq(2).text().toLowerCase();
+        if (customerName.includes(query) || poolName.includes(query)) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  });
+
+  </script>
 </body>
-
 </html>
