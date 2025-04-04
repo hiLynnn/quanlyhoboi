@@ -20,8 +20,8 @@
         <li class="nav-item"><a class="nav-link" href="{{route('events.index')}}">Quản Lý Sự Kiện</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('facilities.index')}}">Quản Lý Tiện Ích</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('registrations.index')}}">Quản Lý Phiếu Đăng Ký</a></li>
-        <li class="nav-item"><a class="nav-link" href="infor-customer.html">Quản Lý Thông Tin Khách Hàng</a></li>
-        <li class="nav-item"><a class="nav-link" href="review-management.html">Đánh Giá</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Quản Lý Thông Tin Khách Hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Đánh Giá</a></li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
@@ -31,7 +31,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
             <li><a class="dropdown-item" href="profile.html">Hồ Sơ</a></li>
-            <li><a class="dropdown-item text-danger" href="logout.html">Đăng Xuất</a></li>
+            <li><a class="dropdown-item text-danger" href="{{route('dashboard')}}">Đăng Xuất</a></li>
           </ul>
         </li>
       </ul>
