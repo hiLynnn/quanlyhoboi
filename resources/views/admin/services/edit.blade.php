@@ -1,7 +1,7 @@
 @extends('layout_admin')
 @section('content')
     <div class="container mt-5">
-        <h2>Sửa dịch vụ</h2>
+        <h2>Sửa dịch vụ của hồ bơi</h2>
         @php
             $message = Session::get('message');
             if ($message) {

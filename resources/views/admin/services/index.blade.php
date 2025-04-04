@@ -7,7 +7,7 @@
         </div>
         <a href="{{ route('services.create') }}">
             <button class="btn btn-primary mb-3" id="addServiceBtn">Thêm
-                Dịch Vụ</button>
+                Dịch Vụ của hồ bơi</button>
         </a>
 
         <!-- Bảng danh sách dịch vụ -->

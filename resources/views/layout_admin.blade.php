@@ -15,8 +15,8 @@
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link active" href="{{route('dashboard')}}">Trang Chủ</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('pools.index')}}">Quản Lý Hồ Bơi</a></li>
-        <li class="nav-item"><a class="nav-link" href="service-management.html">Quản Lý Dịch Vụ</a></li>
-        <li class="nav-item"><a class="nav-link" href="service-management2.html">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('services.index')}}">Quản Lý Dịch Vụ</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('services.index')}}">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
         <li class="nav-item"><a class="nav-link" href="event-management.html">Quản Lý Sự Kiện</a></li>
         <li class="nav-item"><a class="nav-link" href="facility-management.html">Quản Lý Tiện Ích</a></li>
         <li class="nav-item"><a class="nav-link" href="eventregistrations.html">Quản Lý Phiếu Đăng Ký</a></li>

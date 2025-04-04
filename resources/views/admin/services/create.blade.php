@@ -1,7 +1,7 @@
 @extends('layout_admin')
 @section('content')
     <div class="container mt-5">
-        <h2>Thêm dịch vụ</h2>
+        <h2>Thêm dịch vụ của hồ bơi</h2>
         <form id="addServiceForm" action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="mb-3">
