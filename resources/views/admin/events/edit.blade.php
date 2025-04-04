@@ -9,27 +9,50 @@
                 Session::put('message', null);
             }
         @endphp
-        <form id="editServiceForm" action="{{ route('services.update', $poolService->id_ps) }}" method="POST">
+        <form id="editEventForm" action="{{ route('events.update', $event->id_event) }}" method="POST">
             @csrf
             @method('PUT')
+
+            <input type="hidden" id="editEventId" name="id" value="{{ $event->id }}">
+            <!-- Hidden field for event ID -->
+
             <div class="mb-3">
-                <label for="editServiceId" class="form-label">Chọn Dịch Vụ</label>
-                <select class="form-control" id="editServiceId" name="id_service" required>
-                    <option value="">Chọn Dịch Vụ</option>
-                    @foreach($allServices as $service)
-                        <option value="{{ $service->id_service }}"
-                            {{ $service->id_service == $poolService->id_service ? 'selected' : '' }}>
-                            {{ $service->name }}
-                        </option>
-                    @endforeach
+                <label class="form-label">Tên Sự Kiện</label>
+                <input type="text" class="form-control" id="editEventName" name="name"
+                    value="{{ old('name', $event->name) }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mô Tả</label>
+                <input type="text" class="form-control" id="editEventDescription" name="description"
+                    value="{{ old('description', $event->description) }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Loại Sự Kiện</label>
+                <select class="form-control" id="editEventType" name="type" required>
+                    <option value="Thể Thao" {{ $event->type == 'Thể Thao' ? 'selected' : '' }}>Thể Thao</option>
+                    <option value="Giáo dục" {{ $event->type == 'Giáo dục' ? 'selected' : '' }}>Giáo dục</option>
+                    <option value="Party" {{ $event->type == 'Party' ? 'selected' : '' }}>Party</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="editServicePrice" class="form-label">Giá Dịch Vụ</label>
-                <input type="number" class="form-control" id="editServicePrice" name="price"
-                    value="{{ old('price', $poolService->price) }}" required>
+                <label class="form-label">Thời Gian</label>
+                <input type="datetime-local" class="form-control" id="editEventTime" name="organization_date"
+                    value="{{ old('organization_date', \Carbon\Carbon::parse($event->organization_date)->format('Y-m-d\TH:i')) }}"
+                    required>
             </div>
-            <button type="submit" class="btn btn-primary">Lưu</button>
+            <div class="mb-3">
+                <label class="form-label">Số Lượng</label>
+                <input type="number" class="form-control" id="editEventCapacity" name="max_participants"
+                    value="{{ old('max_participants', $event->max_participants) }}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phí</label>
+                <input type="number" class="form-control" id="editEventFee" name="price"
+                    value="{{ old('price', $event->price) }}" required>
+            </div>
+            <button type="submit" class="btn btn-warning">Cập Nhật Sự Kiện</button>
         </form>
     </div>
 @endsection
