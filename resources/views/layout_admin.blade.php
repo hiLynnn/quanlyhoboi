@@ -31,7 +31,7 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
             <li><a class="dropdown-item" href="profile.html">Hồ Sơ</a></li>
-            <li><a class="dropdown-item text-danger" href="{{route('dashboard')}}">Đăng Xuất</a></li>
+            <li><a class="dropdown-item text-danger" href="{{route('login')}}">Đăng Xuất</a></li>
           </ul>
         </li>
       </ul>

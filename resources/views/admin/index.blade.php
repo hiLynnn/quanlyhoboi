@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Hồ Bơi</h5>
                         <p class="card-text">Quản lý các hồ bơi trong thành phố, cập nhật và kiểm tra các hồ bơi hiện có.</p>
-                        <a href="pool.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('pools.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Dịch Vụ</h5>
                         <p class="card-text">Quản lý các dịch vụ hồ bơi, các dịch vụ hỗ trợ người tham gia.</p>
-                        <a href="service-management.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('dich-vu.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Dịch Vụ Của Hồ Bơi</h5>
                         <p class="card-text">Quản lý các dịch vụ hồ bơi về giá cả, về hồ bơi đó.</p>
-                        <a href="service-management2.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('services.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Sự Kiện</h5>
                         <p class="card-text">Quản lý các sự kiện tại các hồ bơi, thời gian tổ chức và các chi tiết khác.</p>
-                        <a href="event-management.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('events.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Tiện Ích</h5>
                         <p class="card-text">Quản lý các tiện ích tại các hồ bơi, các tiện ích hỗ trợ người tham gia.</p>
-                        <a href="facility-management.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('facilities.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Quản Lý Phiếu Đăng Ký</h5>
                         <p class="card-text">Quản lý các phiếu đăng ký tham gia các sự kiện hoặc dịch vụ tại các hồ bơi.</p>
-                        <a href="eventregistrations.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('registrations.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                         <h5 class="card-title">Quản Lý Thông Tin Khách Hàng</h5>
                         <p class="card-text">Xem thông tin chi tiết về khách hàng đã đăng ký tham gia các dịch vụ và sự
                             kiện.</p>
-                        <a href="infor-customer.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('dashboard')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Đánh Giá</h5>
                         <p class="card-text">Xem đánh giá của khách hàng về các dịch vụ, hồ bơi đã tham gia.</p>
-                        <a href="review-management.html" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('dashboard')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>
