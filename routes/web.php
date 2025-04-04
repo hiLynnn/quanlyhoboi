@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\PoolServiceController;
@@ -17,5 +18,6 @@ Route::prefix('cms')->group(function () {
     Route::resource('pools', PoolController::class);
     Route::resource('dich-vu', ServiceController::class);
     Route::resource('services', PoolServiceController::class);
+    Route::resource('events', EventController::class);
 });
 
