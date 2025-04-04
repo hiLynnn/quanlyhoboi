@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\QuanLyHoBoiController;
+use App\Http\Controllers\PoolController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::prefix('cms')->group(function () {
     Route::get('/', [LoginController::class, 'index'])->name('dashboard');
     Route::post('/', [LoginController::class, 'login'])->name('login');
-    Route::resource('quan-ly-ho-boi',QuanLyHoBoiController ::class);
+    Route::resource('pools', PoolController::class);
 
 });
 

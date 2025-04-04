@@ -79,7 +79,7 @@
         </table>
     </div>
 
-    {{-- <!-- Modal Thêm Hồ Bơi -->
+    <!-- Modal Thêm Hồ Bơi -->
     <div class="modal fade" id="addPoolModal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -232,7 +232,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
