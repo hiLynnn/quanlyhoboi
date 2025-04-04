@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Quản Lý Hồ Bơi</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{{route('dashboard')}}">Quản Lý Hồ Bơi</a>
+        <a class="navbar-brand" href="#">Quản Lý Hồ Bơi</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="{{route('dashboard')}}">Trang Chủ</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
                 <li class="nav-item"><a class="nav-link" href="pool-management.html">Quản Lý Hồ Bơi</a></li>
                 <li class="nav-item"><a class="nav-link" href="service-management.html">Quản Lý Dịch Vụ</a></li>
                 <li class="nav-item"><a class="nav-link" href="service-management2.html">Quản Lý Dịch Vụ Của Hồ Bơi</a></li>
@@ -88,53 +83,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Form thêm hồ bơi -->
-                    <form id="addPoolForm" action="{{ route('cms.add-pool') }}" method="POST" enctype="multipart/form-data">
-                        @csrf <!-- CSRF token để bảo vệ form khỏi các cuộc tấn công CSRF -->
+                    <form id="addPoolForm">
                         <div class="mb-3">
-                            <label for="name">Tên Hồ Bơi</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <label>ID</label>
+                            <input type="text" class="form-control" id="addPoolID" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="house_number">Số Nhà</label>
-                            <input type="text" class="form-control" id="house_number" name="house_number" required>
+                            <label>Hình ảnh</label>
+                            <input type="file" class="form-control" id="addPoolImage" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="id_street">Địa chỉ</label>
-                            <input type="text" class="form-control" id="id_street" name="id_street" required>
+                            <label>Tên Hồ Bơi</label>
+                            <input type="text" class="form-control" id="addPoolName" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="lat">Tọa độ Latitude</label>
-                            <input type="text" class="form-control" id="lat" name="lat" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="lng">Tọa độ Longitude</label>
-                            <input type="text" class="form-control" id="lng" name="lng" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="length">Chiều dài</label>
-                            <input type="number" class="form-control" id="length" name="length" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="width">Chiều rộng</label>
-                            <input type="number" class="form-control" id="width" name="width" required>
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label for="depth">Chiều sâu</label>
-                            <input type="text" class="form-control" id="depth" name="depth" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="type">Loại Hồ Bơi</label>
-                            <select class="form-control" id="type" name="type" required>
+                            <label>Loại Hồ Bơi</label>
+                            <select class="form-control" id="addPoolType" required>
                                 <option value="Hồ bơi công cộng">Hồ bơi công cộng</option>
                                 <option value="Hồ bơi tư nhân">Hồ bơi tư nhân</option>
                                 <option value="Hồ bơi trẻ em">Hồ bơi trẻ em</option>
@@ -143,42 +110,51 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="opening_hours">Giờ mở cửa</label>
-                            <input type="text" class="form-control" id="opening_hours" name="opening_hours" required>
+                            <label>Địa chỉ</label>
+                            <input type="text" class="form-control" id="addHouseNumber" placeholder="Số nhà" required>
+                            <input type="text" class="form-control mt-2" id="addStreetID" placeholder="ID Đường" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="close_hours">Giờ đóng cửa</label>
-                            <input type="text" class="form-control" id="close_hours" name="close_hours" required>
+                            <label>Toạ độ</label>
+                            <input type="text" class="form-control" id="addLatitude" placeholder="Vĩ độ" required>
+                            <input type="text" class="form-control mt-2" id="addLongitude" placeholder="Kinh độ" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="img">Hình ảnh</label>
-                            <input type="file" class="form-control" id="img" name="img">
+                            <label>Kích thước (m)</label>
+                            <input type="number" class="form-control" id="addPoolLength" placeholder="Dài" required>
+                            <input type="number" class="form-control mt-2" id="addPoolWidth" placeholder="Rộng" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="children_price">Giá trẻ em</label>
-                            <input type="text" class="form-control" id="children_price" name="children_price" required>
+                            <label>Độ sâu (m)</label>
+                            <input type="number" class="form-control" id="addPoolDepth" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="adult_price">Giá người lớn</label>
-                            <input type="text" class="form-control" id="adult_price" name="adult_price" required>
+                            <label>Giá vé (VND)</label>
+                            <input type="number" class="form-control" id="addChildrenPrice" placeholder="Trẻ em" required>
+                            <input type="number" class="form-control mt-2" id="addAdultPrice" placeholder="Người lớn" required>
+                            <input type="number" class="form-control mt-2" id="addStudentPrice" placeholder="Học sinh" required>
                         </div>
 
                         <div class="mb-3">
-                            <label for="student_price">Giá học sinh, sinh viên</label>
-                            <input type="text" class="form-control" id="student_price" name="student_price" required>
+                            <label>Giờ Mở</label>
+                            <input type="time" class="form-control" id="addOpeningHours" required>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Thêm Hồ Bơi</button>
+                        <div class="mb-3">
+                            <label>Giờ Đóng</label>
+                            <input type="time" class="form-control" id="addClosingHours" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Lưu</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Modal Sửa Hồ Bơi -->
     <div class="modal fade" id="editPoolModal">
@@ -237,48 +213,143 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Flatpickr JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- Moment.js -->
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
 
-    {{-- <script>
-       $(document).ready(function () {
-        var csrfToken = $('meta[name="csrf-token"]').attr('content');
-        $('#addPoolForm').on('submit', function (e) {
-            e.preventDefault(); // Ngừng gửi form theo cách truyền thống
+    <script>
+        $(document).ready(function () {
+            let authToken = localStorage.getItem("authToken") || "";
 
-            // Lấy dữ liệu từ form
-            var formData = new FormData(this);
+            // Hàm tải danh sách hồ bơi
+            function loadPools() {
+                $.ajax({
+                    type: "GET",
+                    url: "http://127.0.0.1:8000/api/pools",
+                    headers: { "Authorization": `Bearer ${authToken}` },
+                    success: function (response) {
+                        let pools = response.data || [];
+                        let poolList = pools.map((pool) => `
+                            <tr>
+                                <td>${pool.id_pool}</td>
+                                <td>${pool.name}</td>
+                                <td>${pool.house_number}</td>
+                                <td>${pool.id_street}</td>
+                                <td>${pool.lat}</td>
+                                <td>${pool.lng}</td>
+                                <td>${pool.length} m</td>
+                                <td>${pool.width} m</td>
+                                <td>${pool.depth} m</td>
+                                <td>${pool.type}</td>
+                                <td>${pool.opening_hours}</td>
+                                <td>${pool.close_hours}</td>
+                                <td><img src="${pool.img}" alt="Ảnh hồ bơi" width="100"></td>
+                                <td>${pool.children_price} VND</td>
+                                <td>${pool.adult_price} VND</td>
+                                <td>${pool.student_price} VND</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm edit-btn" data-id="${pool.id_pool}">Sửa</button>
+                                    <button class="btn btn-danger btn-sm delete-btn" data-id="${pool.id_pool}">Xóa</button>
+                                </td>
+                            </tr>
+                        `).join('');
+                        $("#poolList").html(poolList);
+                    },
+                    error: function () {
+                        alert("Không thể tải danh sách hồ bơi. Vui lòng thử lại.");
+                    }
+                });
+            }
 
-            // Gửi dữ liệu lên server qua AJAX
-            $.ajax({
-                url: "{{ route('cms.add-pool') }}", // Route đến controller
-                method: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    // Thông báo thành công
-                    alert('Thêm hồ bơi thành công!');
+            // Thêm hồ bơi
+            $("#addPoolForm").submit(function (e) {
+                e.preventDefault();
 
-                    // Đóng modal sau khi thành công
-                    $('#addPoolModal').modal('hide');
+                let formData = new FormData();
+                formData.append("name", $("#addPoolName").val());
+                formData.append("house_number", $("#addHouseNumber").val());
+                formData.append("id_street", $("#addStreetID").val());
+                formData.append("lat", $("#addLatitude").val());
+                formData.append("lng", $("#addLongitude").val());
+                formData.append("length", $("#addPoolLength").val());
+                formData.append("width", $("#addPoolWidth").val());
+                formData.append("depth", $("#addPoolDepth").val());
+                formData.append("type", $("#addPoolType").val());
+                formData.append("children_price", $("#addChildrenPrice").val());
+                formData.append("adult_price", $("#addAdultPrice").val());
+                formData.append("student_price", $("#addStudentPrice").val());
+                formData.append("opening_hours", $("#addOpeningHours").val());
+                formData.append("close_hours", $("#addClosingHours").val());
+                formData.append("img", $("#addPoolImage")[0].files[0]);
 
-                    // Bạn có thể làm gì đó với response nếu muốn
-                    // Ví dụ: Cập nhật danh sách hồ bơi mà không tải lại trang.
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:8000/api/pools",
+                    headers: { "Authorization": `Bearer ${authToken}` },
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function () {
+                        loadPools();
+                        $("#addPoolModal").modal('hide');
+                    },
+                    error: function () {
+                        alert("Không thể thêm hồ bơi. Vui lòng thử lại.");
+                    }
+                });
+            });
 
-                    // Reset form
-                    $('#addPoolForm')[0].reset();
-                },
-                error: function (xhr, status, error) {
-                    // Xử lý lỗi
-                    var errorMessage = xhr.status + ': ' + xhr.statusText;
-                    alert('Có lỗi xảy ra: ' + errorMessage);
+            // Sửa hồ bơi
+            $(document).on("click", ".edit-btn", function () {
+                let poolId = $(this).data("id");
+
+                $.ajax({
+                    type: "GET",
+                    url: `http://127.0.0.1:8000/api/pools/${poolId}`,
+                    headers: { "Authorization": `Bearer ${authToken}` },
+                    success: function (response) {
+                        let pool = response.data;
+                        $("#editPoolID").val(pool.id_pool);
+                        $("#editPoolName").val(pool.name);
+                        $("#editHouseNumber").val(pool.house_number);
+                        $("#editStreetID").val(pool.id_street);
+                        $("#editLatitude").val(pool.lat);
+                        $("#editLongitude").val(pool.lng);
+                        $("#editPoolLength").val(pool.length);
+                        $("#editPoolWidth").val(pool.width);
+                        $("#editPoolDepth").val(pool.depth);
+                        $("#editPoolType").val(pool.type);
+                        $("#editChildrenPrice").val(pool.children_price);
+                        $("#editAdultPrice").val(pool.adult_price);
+                        $("#editStudentPrice").val(pool.student_price);
+                        $("#editOpeningHours").val(pool.opening_hours);
+                        $("#editClosingHours").val(pool.close_hours);
+                    },
+                    error: function () {
+                        alert("Không thể tải thông tin hồ bơi. Vui lòng thử lại.");
+                    }
+                });
+            });
+
+            // Xoá hồ bơi
+            $(document).on("click", ".delete-btn", function () {
+                let poolId = $(this).data("id");
+
+                if (confirm("Bạn có chắc chắn muốn xóa hồ bơi này không?")) {
+                    $.ajax({
+                        type: "DELETE",
+                        url: `http://127.0.0.1:8000/api/pools/${poolId}`,
+                        headers: { "Authorization": `Bearer ${authToken}` },
+                        success: function () {
+                            loadPools();
+                        },
+                        error: function () {
+                            alert("Không thể xóa hồ bơi. Vui lòng thử lại.");
+                        }
+                    });
                 }
             });
+
+            // Tải danh sách hồ bơi khi trang được tải
+            loadPools();
         });
-    });
-    </script> --}}
+    </script>
 </body>
 </html>
