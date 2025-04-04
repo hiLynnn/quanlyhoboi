@@ -19,7 +19,7 @@
             </tr>
         </thead>
         <tbody id="registrationList">
-            @foreach ($registrations as $registration)
+            @foreach ($registrationList as $registration)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $registration->user->name }}</td>
