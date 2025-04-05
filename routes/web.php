@@ -19,6 +19,9 @@ Route::prefix('cms')->group(function () {
     Route::get('/', [LoginController::class, 'index'])->name('dashboard');
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
     Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register.form');
+    Route::post('/register', [LoginController::class, 'register'])->name('register');
     Route::resource('pools', PoolController::class);
     Route::resource('dich-vu', ServiceController::class);
     Route::resource('services', PoolServiceController::class);

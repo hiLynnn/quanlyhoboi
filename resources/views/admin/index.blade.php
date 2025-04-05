@@ -81,7 +81,7 @@
                         <h5 class="card-title">Quản Lý Thông Tin Khách Hàng</h5>
                         <p class="card-text">Xem thông tin chi tiết về khách hàng đã đăng ký tham gia các dịch vụ và sự
                             kiện.</p>
-                        <a href="{{route('dashboard')}}" class="btn btn-primary">Xem Chi Tiết</a>
+                        <a href="{{route('users.index')}}" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                 </div>
             </div>

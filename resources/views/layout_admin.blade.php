@@ -30,8 +30,8 @@
             <img src="img/admin.jpg" alt="Admin" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 8px;">
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-            <li><a class="dropdown-item" href="profile.html">Hồ Sơ</a></li>
-            <li><a class="dropdown-item text-danger" href="{{route('login')}}">Đăng Xuất</a></li>
+            <li><a class="dropdown-item" href="{{route('users.show', Auth::id())}}">Hồ Sơ</a></li>
+            <li><a class="dropdown-item text-danger" href="{{route('logout')}}">Đăng Xuất</a></li>
           </ul>
         </li>
       </ul>

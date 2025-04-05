@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Nhập</title>
-    <!-- Bootstrap CSS -->
+    <title>Đăng Ký</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Thêm jQuery -->
 </head>
+
 <body>
-    <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index-guest.html">Quản lý hồ bơi</a>
@@ -26,35 +26,31 @@
         </div>
     </nav>
 
-    <div class="container">
-        <h2>Đăng Nhập</h2>
-        <form action="{{ route('login') }}" method="POST" id="loginForm">
+    <div class="container mt-4">
+        <h2 class="text-center">Đăng Ký</h2>
+        <form id="registerForm" action="{{ route('register') }}" method="POST">
             @csrf <!-- CSRF Token để bảo vệ chống tấn công CSRF -->
-
-            <input type="text" name="phone" placeholder="Số điện thoại" required>
-            <input type="password" name="password" placeholder="Mật khẩu" required>
-
-            @if (Session::has('message'))
-                <div class="alert alert-danger">
-                    {{ Session::get('message') }}
-                </div>
-                @php
-                    Session::forget('message');
-                @endphp
-            @endif
-
-            <button type="submit">Đăng Nhập</button>
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Họ và Tên" required>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="phone" class="form-control" placeholder="Số điện thoại" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Mật khẩu (tối thiểu 6 ký tự)"
+                    required>
+            </div>
+            <button type="button" class="btn btn-primary w-100">Đăng Ký</button>
         </form>
-
         <br>
-        <div class="switch-form">
-            Chưa có tài khoản? <a href="{{route('register.form')}}">Đăng ký</a>
+        <div class="text-center">
+            Đã có tài khoản? <a href="login.html">Đăng nhập</a>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-white text-center py-3 mt-3">
+    <footer class="bg-primary text-white text-center py-3 mt-4">
         <p>&copy; 2025 Quản lý hồ bơi. Tất cả các quyền được bảo lưu.</p>
     </footer>
 </body>
+
 </html>

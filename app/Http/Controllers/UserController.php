@@ -45,7 +45,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $user = User::findOrFail($id);
+        return view('admin.users.profile', compact('user'));
     }
 
     /**
@@ -61,7 +62,16 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        if ($request->password) {
+            $user->password = Hash::make($request->password); // Mã hóa mật khẩu
+        }
+        $user->role = $request->role;
+        $user->save();
 
+        return redirect()->route('dashboard')->with('success', 'User updated successfully.');
     }
 
     /**
