@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pool;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class CustomerController extends Controller
     public function index()
     {
         if (Auth::check() && Auth::user()->role == 'customer') {
-            return view('customer.index');  // Chuyển hướng đến trang admin nếu đã đăng nhập
+            $pools = Pool::all();
+            return view('customer.index',compact('pools'));  // Chuyển hướng đến trang khách hàng nếu đã đăng nhập
         } else {
             return redirect()->route('login.form');  // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
         }

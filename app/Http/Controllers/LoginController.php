@@ -34,7 +34,7 @@ class LoginController extends Controller
         elseif ($user && $user->role == 'customer') {
             // Đăng nhập thành công
             Auth::login($user);
-            return redirect()->route('customer');  // Chuyển hướng đến trang customer
+            return redirect()->route('customers');  // Chuyển hướng đến trang customer
         }
          else {
             // Đăng nhập thất bại

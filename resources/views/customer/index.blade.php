@@ -170,13 +170,13 @@
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
         <!-- Custom JS -->
-        <script src="js/main.js"></script>
+        <script src="{{asset('user/js/main.js')}}"></script>
 
         <!-- Leaflet Routing Machine JS -->
         <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 
         <!-- Custom JS -->
-        {{-- <script>
+        <script>
             async function searchPools() {
                 console.log("🔍 Bắt đầu tìm kiếm hồ bơi...");
 
@@ -752,7 +752,7 @@
                         });
                 });
 
-        </script> --}}
+        </script>
 
 </body>
 
