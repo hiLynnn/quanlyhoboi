@@ -263,7 +263,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
     <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <script src="{{asset('user/js/main.js')}}"></script>
 
     <!-- Custom JS -->
     <script>
@@ -341,7 +341,7 @@
                     document.getElementById("poolImage").src = data.data.img;
                     document.getElementById("poolName").textContent = data.data.name || "Không có tên";
                     document.getElementById("poolAddress").textContent =
-                        `${data.data.house_number || "N/A"}, ${data.data.street?.name || "N/A"}, 
+                        `${data.data.house_number || "N/A"}, ${data.data.street?.name || "N/A"},
                          ${data.data.street?.ward?.name || "N/A"}, ${data.data.street?.ward?.district?.name || "N/A"}`;
                     document.getElementById("poolType").textContent = data.data.type || "Không xác định";
                     document.getElementById("poolHours").textContent = `${data.data.opening_hours || "N/A"}, ${data.data.close_hours || "N/A"}`;
