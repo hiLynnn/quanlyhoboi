@@ -657,7 +657,7 @@
                                     <a href="pool-detail-guest.html?poolId=${pool.id}" class="card-title">
                                         <h5>${pool.name}</h5>
                                     </a>
-                                 
+
                                     <h6><strong>💰 Phí vào cổng:</strong></h6>
                                     <ul class="list-unstyled">
                                         <li><strong>👨‍🦳 Người lớn:</strong> ${pool.price.adult}</li>

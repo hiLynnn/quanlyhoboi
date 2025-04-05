@@ -24,14 +24,19 @@ class LoginController extends Controller
         //phone và pasword
         $credentials = $request->only('phone', 'password');
         // Kiểm tra thông tin đăng nhập
-        //không dùng attempt
         $user = User::where('phone', $credentials['phone'])->first();
         // dd($user);
-        if ($user) {
+        if ($user && $user->role == 'admin') {
             // Đăng nhập thành công
             Auth::login($user);
             return redirect()->route('dashboard');  // Chuyển hướng đến trang admin
-        } else {
+        }
+        elseif ($user && $user->role == 'customer') {
+            // Đăng nhập thành công
+            Auth::login($user);
+            return redirect()->route('customer');  // Chuyển hướng đến trang customer
+        }
+         else {
             // Đăng nhập thất bại
             return redirect()->back()->withErrors(['phone' => 'Thông tin đăng nhập không chính xác.']);
         }
@@ -58,23 +63,12 @@ class LoginController extends Controller
     }
     public function register(Request $request)
     {
-        // Validate the request data
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
         // Create a new user
         $user = new User();
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->role = 'user';  // Set default role
+        $user->role = 'customer';  // Set default role
         $user->save();
 
         return redirect()->route('login.form')->with('success', 'Đăng ký thành công. Vui lòng đăng nhập.');

@@ -40,7 +40,7 @@
                 <input type="password" name="password" class="form-control" placeholder="Mật khẩu (tối thiểu 6 ký tự)"
                     required>
             </div>
-            <button type="button" class="btn btn-primary w-100">Đăng Ký</button>
+            <button type="submit" class="btn btn-primary w-100">Đăng Ký</button>
         </form>
         <br>
         <div class="text-center">
