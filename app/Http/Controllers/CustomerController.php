@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -17,7 +19,6 @@ class CustomerController extends Controller
         } else {
             return redirect()->route('login.form');  // Chuyển hướng đến trang đăng nhập nếu chưa đăng nhập
         }
-
     }
 
     /**
@@ -41,7 +42,12 @@ class CustomerController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $customer = User::find($id);
+        if ($customer) {
+            return view('customer.profile', compact('customer'));
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Không tìm thấy khách hàng.']);
+        }
     }
 
     /**
@@ -57,7 +63,23 @@ class CustomerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $customer = User::find($id);
+        if ($customer) {
+            $data = $request->all();
+
+            // Nếu có password thì mã hóa
+            if (!empty($data['password'])) {
+                $data['password'] = Hash::make($data['password']);
+            } else {
+                // Nếu không có thì bỏ trường password để không cập nhật
+                unset($data['password']);
+            }
+
+            $customer->update($data);
+            return redirect()->route('customers')->with('success', 'Cập nhật thông tin thành công.');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Không tìm thấy khách hàng.']);
+        }
     }
 
     /**

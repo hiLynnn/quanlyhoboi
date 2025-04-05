@@ -34,7 +34,10 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.for
 Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [LoginController::class, 'register'])->name('register');
 
-Route::prefix('customer')->group(function () {
-    Route::get('/', [CustomerController::class, 'index'])->name('customer');
+Route::prefix('customers')->group(function () {
+    Route::get('/', [CustomerController::class, 'index'])->name('customers');
+    Route::get('/{id}', [CustomerController::class, 'show'])->name('customer.show');
+    Route::get('/{id}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+    Route::put('/{id}', [CustomerController::class, 'update'])->name('customer.update');
 });
 

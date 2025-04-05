@@ -39,7 +39,7 @@
                             <i class="fa-solid fa-user text-white" style="font-size: 1rem;"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                            <li><a class="dropdown-item" href="profile.html">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="{{route('customer.show', Auth::id())}}">Thông tin cá nhân</a></li>
                             <li><a class="dropdown-item" href="{{route('logout')}}">Đăng xuất</a></li>
                         </ul>
                     </li>
