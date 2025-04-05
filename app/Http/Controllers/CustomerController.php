@@ -67,4 +67,9 @@ class CustomerController extends Controller
     {
         //
     }
+    public function logout()
+    {
+        Auth::logout();  // Đăng xuất người dùng
+        return redirect()->route('login');  // Chuyển hướng đến trang đăng nhập
+    }
 }
