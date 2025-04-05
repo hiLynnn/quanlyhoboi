@@ -20,7 +20,7 @@
         <li class="nav-item"><a class="nav-link" href="{{route('events.index')}}">Quản Lý Sự Kiện</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('facilities.index')}}">Quản Lý Tiện Ích</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('registrations.index')}}">Quản Lý Phiếu Đăng Ký</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Quản Lý Thông Tin Khách Hàng</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{route('users.index')}}">Quản Lý Thông Tin Khách Hàng</a></li>
         <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">Đánh Giá</a></li>
       </ul>
 

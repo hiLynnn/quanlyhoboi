@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PoolController;
 use App\Http\Controllers\PoolServiceController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,7 @@ Route::prefix('cms')->group(function () {
     Route::resource('services', PoolServiceController::class);
     Route::resource('events', EventController::class);
     Route::resource('facilities', FacilitiesController::class);
+    Route::resource('users', UserController::class);
     Route::resource('registrations', EventRegistrationController::class);
 });
 

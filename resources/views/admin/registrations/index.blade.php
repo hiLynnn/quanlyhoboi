@@ -25,9 +25,18 @@
                     <td>{{ $registration->user->name }}</td>
                     <td>{{ $registration->event->name }}</td>
                     <td>{{ \Carbon\Carbon::parse($registration->created_at)->format('d/m/Y H:i') }}</td>
-                    <td>{{ $registration->status }}</td>
                     <td>
-                        <form action="{{ route('registrations.destroy', $registration->id) }}" method="POST" style="display:inline;">
+                        @if($registration->status == 'pending')
+                            Chưa giải quyết
+                        @elseif($registration->status == 'confirmed')
+                            Duyệt
+                        @elseif($registration->status == 'rejected')
+                            Từ chối
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('registrations.edit', $registration->id_ER) }}" class="btn btn-warning">Xác nhận</a>
+                        <form action="{{ route('registrations.destroy', $registration->id_ER) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Xóa</button>

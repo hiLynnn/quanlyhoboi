@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EventRegistration;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class EventRegistrationController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $registrationList = EventRegistration::with(['event', 'user'])->get();
-        return view('admin.registrations.index', compact('registrationList'));
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -21,7 +22,7 @@ class EventRegistrationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -29,7 +30,14 @@ class EventRegistrationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->password); // Mã hóa mật khẩu
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
     /**
@@ -45,8 +53,7 @@ class EventRegistrationController extends Controller
      */
     public function edit(string $id)
     {
-        $registration = EventRegistration::findOrFail($id);
-        return view('admin.registrations.edit', compact('registration'));
+        //
     }
 
     /**
@@ -54,11 +61,7 @@ class EventRegistrationController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $registration = EventRegistration::findOrFail($id);
-        $registration->status = $request->status;
-        $registration->save();
 
-        return redirect()->route('registrations.index')->with('success', 'Registration updated successfully.');
     }
 
     /**
@@ -66,9 +69,9 @@ class EventRegistrationController extends Controller
      */
     public function destroy(string $id)
     {
-        $registration = EventRegistration::findOrFail($id);
-        $registration->delete();
+        $user = User::findOrFail($id);
+        $user->delete();
 
-        return redirect()->route('registrations.index')->with('success', 'Registration deleted successfully.');
+        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
     }
 }
